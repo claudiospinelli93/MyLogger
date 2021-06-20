@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest 
     steps:
       - name: Deploy new docker image
-        uses: tuongaz/kubctl-eks-action@1.0.1
+        uses: tuongaz/kubectl-eks-action@1.0.1
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -20,4 +20,5 @@ jobs:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
           args: apply -f deployment.yaml
+          
         
