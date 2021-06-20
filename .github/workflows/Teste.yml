@@ -40,7 +40,7 @@ jobs:
           aws-region: us-east-1
 
       - name: Change image Docker
-        run: sed -i 's/Param01ImageDocker/mylogger:${{ steps.buildnumber.outputs.build_number }}/' deployment.yaml
+        run: sed -i 's/Param01ImageDocker/${{secrets.DOCKERHUB_USERNAME}}/mylogger:${{ steps.buildnumber.outputs.build_number }}/' deployment.yaml
 
       - name: Trigger deploy
         uses: Jberlinsky/kubernetes-action@1.1.1
