@@ -14,9 +14,18 @@ jobs:
     
     defaults:
       run:
-        working-directory: MyLogger
+        working-directory: ./MyLogger
   
     steps:
+      - name: Generate build number
+        id: package
+        uses: juliangruber/read-file-action@v13
+        with:
+          path: ./deployment.yaml
+          
+      - name: Generate build number
+        run: echo "${{ steps.package.outputs.content }}"
+          
       - name: Generate build number
         id: buildnumber
         uses: einaregilsson/build-number@v3
