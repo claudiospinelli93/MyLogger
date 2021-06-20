@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: List files in the repository
         run: |
-          ls ${{ github.workspace }}
+          ls ${{ github.workspace }}/../
           
       - name: Teste Package
         id: package
