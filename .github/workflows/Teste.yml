@@ -11,6 +11,9 @@ jobs:
     name: Update deploya
     runs-on: ubuntu-latest 
     steps:
+      - name: LS 02
+        run: ls
+        
       - name: Generate build number
         id: buildnumber
         uses: einaregilsson/build-number@v3
