@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: deploy to cluster
-        uses: wahyd4/kubectl-helm-action@master
+        uses: wahyd4/kubectl-helm-action@v0.1.2
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
