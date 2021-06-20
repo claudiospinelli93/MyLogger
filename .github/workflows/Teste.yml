@@ -11,14 +11,8 @@ jobs:
     name: Update deploya
     runs-on: ubuntu-latest 
     steps:
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-2
       - name: deploy to cluster
-        uses: steebchen/kubectl@v2.0.0
-        with: # defaults to latest kubectl binary version
-          config: ${{ secrets.KUBE_CONFIG_DATA }}
-          command: apply -f deployment.yaml
+        uses: kodermax/kubectl-aws-eks@master
+        with:
+          args: apply -f deployment.yaml
+        
