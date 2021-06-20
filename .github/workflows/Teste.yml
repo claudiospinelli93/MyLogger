@@ -11,10 +11,10 @@ jobs:
   container:
     name: 'Container'
     runs-on: ubuntu-latest
-    
-    defaults:
-      run:
-        working-directory: ./
+
+    #defaults:
+    #  run:
+    #    working-directory: ./
   
     steps:
       - name: List files in the repository
