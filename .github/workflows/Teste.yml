@@ -13,19 +13,19 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: AWS Credentials
+      - name: Jberlinsky AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      - name: helm deploy
-        uses: koslib/helm-eks-action@master
+      - name: Trigger deploy
+        uses: Jberlinsky/kubernetes-action@master
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
-          command:  helm upgrade teste --install -f deployment.yaml
+          args: apply deployment.yaml
 
           
         
