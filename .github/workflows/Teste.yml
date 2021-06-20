@@ -13,8 +13,7 @@ jobs:
     runs-on: ubuntu-latest
   
     steps:
-      - if: github.event_name == 'pull_request'
-        name: Generate build number
+      - name: Generate build number
         id: buildnumer
         uses: einaregilsson/build-number@v3
         with:
