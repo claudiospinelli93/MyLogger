@@ -11,8 +11,6 @@ jobs:
     name: Update deploya
     runs-on: ubuntu-latest 
     steps:
-      - name: LS 02
-        run: ls
         
       - name: Generate build number
         id: buildnumber
@@ -20,40 +18,8 @@ jobs:
         with:
           token: ${{secrets.github_token}}
 
-      - name: Check Out Repo
-        if: github.event_name == 'pull_request'
-        uses: actions/checkout@v2.3.4
-        
-      - name: LS 02
-        run: ls
-        
-      - name: Docker Login
-        # You may pin to the exact commit or the version.
-        # uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
-        uses: docker/login-action@v1.9.0
-        with:
-          username: ${{secrets.DOCKERHUB_USERNAME}}
-          password: ${{secrets.DOCKERHUB_TOKEN}}
-          
-      - name: Docker Setup Buildx
-        # You may pin to the exact commit or the version.
-        # uses: docker/setup-buildx-action@0d135e0c2fc0dba0729c1a47ecfcf5a3c7f8579e
-        uses: docker/setup-buildx-action@v1.3.0
-        
-      - name: Build and push Docker images
-        id: dockerbuild
-        # You may pin to the exact commit or the version.
-        # uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
-        uses: docker/build-push-action@v2.5.0
-        with:
-          push: true
-          tags: ${{secrets.DOCKERHUB_USERNAME}}/mylogger:${{ steps.buildnumber.outputs.build_number }}
-          
-      - name: LS 02
-        run: ls
-        
       - name: Troca
-        run: sed -i 's/mylogger:v1/mylogger:${{ steps.buildnumber.outputs.build_number }}/' deployment.yaml
+        run: sed -i 's/mylogger:v1/mylogger:10/' deployment.yaml
         
       - uses: actions/checkout@v2
       - name: Jberlinsky AWS Credentials
