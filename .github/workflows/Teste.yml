@@ -9,6 +9,12 @@ jobs:
     name: Update deploya
     runs-on: ubuntu-latest 
     steps:
+      - name: Generate build number
+        id: buildnumber
+        uses: einaregilsson/build-number@v3
+        with:
+          token: ${{secrets.github_token}}
+
       - uses: actions/checkout@v2
       - name: Jberlinsky AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
