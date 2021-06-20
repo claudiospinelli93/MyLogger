@@ -25,7 +25,7 @@ jobs:
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
-          command:  helm upgrade teste -f deployment.yaml
+          command:  helm upgrade teste --install -f deployment.yaml
 
           
         
