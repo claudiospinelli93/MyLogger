@@ -29,7 +29,7 @@ namespace Push.Api.Controllers
                 .Property("Erropayload", "Teste Dart")
                 .Write();
 
-            return Ok();
+            return Ok("Deu Certo");
         }
     }
 }

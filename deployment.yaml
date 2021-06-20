@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mylogger-deployment
+  labels:
+    app: mylogger
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mylogger
+  template:
+    metadata:
+      labels:
+        app: mylogger
+    spec:
+      containers:
+      - name: mylogger
+        image: claudiomanoel93/mylogger:v1
+        ports:
+        - containerPort: 80

@@ -43,3 +43,17 @@ jobs:
         with:
           push: true
           tags: claudiomanoel93/mylogger:${{ steps.buildnumber.outputs.build_number }}
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Trigger deploy
+        uses: Consensys/kubernetes-action@master
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+        with:
+          args: apply -f deployment.yaml -f service.yaml
