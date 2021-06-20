@@ -6,8 +6,12 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4C61D1A4-86AB-4A25-BFB8-D3BF64990C4A}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		k8s\develop\deployment-develop.yaml = k8s\develop\deployment-develop.yaml
 		deployment.yaml = deployment.yaml
 		Dockerfile = Dockerfile
+		github-ci.yaml = github-ci.yaml
+		k8s\develop\namespace-develop.yaml = k8s\develop\namespace-develop.yaml
+		k8s\develop\service-develop.yaml = k8s\develop\service-develop.yaml
 		.github\workflows\Teste.yml = .github\workflows\Teste.yml
 	EndProjectSection
 EndProject
