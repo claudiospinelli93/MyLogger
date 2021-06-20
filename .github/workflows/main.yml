@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: develop
-      url: 'mylogger-develop.com.br'
+      url: 'https://www.mylogger-develop.com.br'
     needs: build
     steps:
       - name: Run a one-line script
@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: sandbox
-      url: 'mylogger-develop.com.br'
+      url: 'https://www.mylogger-develop.com.br'
     needs: build
     steps:
       - name: Run a one-line script
@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: sandbox
-      url: 'mylogger-develop.com.br'
+      url: 'https://www.mylogger-develop.com.br'
     needs: deploy-sandbox
     steps:
       - name: Run a one-line script
