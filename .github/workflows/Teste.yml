@@ -11,16 +11,11 @@ jobs:
   container:
     name: 'Container'
     runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: src
-  
+    
     steps:
       - name: List files in the repository
-        working-directory: src
         run: |
-          ls ${{ env.working-directory }}
+          ls ${{ github.workspace }}
           
       - name: Teste Package
         id: package
