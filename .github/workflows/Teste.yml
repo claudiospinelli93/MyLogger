@@ -60,4 +60,4 @@ jobs:
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
-          args: apply -f /home/runner/work/MyLogger/MyLogger/deployment.yaml
+          args: apply -f /home/runner/work/MyLogger/deployment.yaml
