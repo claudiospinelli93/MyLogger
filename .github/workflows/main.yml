@@ -1,0 +1,45 @@
+name: CI
+on:
+ # push:
+ #   branches: [ main ]
+ # pull_request:
+ #   branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo Hello, world!
+        
+  deploy-develop:
+    runs-on: ubuntu-latest
+    environment:
+      name: develop
+      url: 'mylogger-develop.com.br'
+    needs: build
+    steps:
+      - name: Run a one-line script
+        run: echo Deploy Dev
+
+  deploy-sandbox:
+    runs-on: ubuntu-latest
+    environment:
+      name: sandbox
+      url: 'mylogger-develop.com.br'
+    needs: build
+    steps:
+      - name: Run a one-line script
+        run: echo Deploy Dev
+        
+  deploy-production:
+    runs-on: ubuntu-latest
+    environment:
+      name: sandbox
+      url: 'mylogger-develop.com.br'
+    needs: deploy-sandbox
+    steps:
+      - name: Run a one-line script
+        run: echo Deploy Production
+
