@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using NLog;
 using NLog.Config;
+using NLog.Targets;
 
 namespace MyLogger
 {
@@ -34,7 +35,6 @@ namespace MyLogger
             // Inital config.
             var config = new LoggingConfiguration();
 
-            // Set target config Logzio
             var logzioTarget = new LogzioTarget
             {
                 Name = "Logzio",
@@ -44,15 +44,17 @@ namespace MyLogger
                 // URL API
                 ListenerUrl = "https://listener.logz.io:8071",
                 // Message quantity before sending
-                BufferSize = 100,
+                    BufferSize = 100,
                 // Message time sending
                 BufferTimeout = TimeSpan.Parse("00:00:05"),
                 RetriesMaxAttempts = 3,
                 RetriesInterval = TimeSpan.Parse("00:00:02"),
                 Debug = false,
             };
-
             config.AddRule(LogLevel.Debug, LogLevel.Fatal, logzioTarget);
+
+            var logconsole = new ConsoleTarget("logconsole");
+            config.AddRule(LogLevel.Debug, LogLevel.Fatal, logconsole);
 
             LogManager.Configuration = config;
 

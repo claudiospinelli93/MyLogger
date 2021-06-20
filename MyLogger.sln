@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.6.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLogger", "MyLogger.csproj", "{872A7D72-CC72-4045-9389-A47EFD97618F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyLogger", "MyLogger.csproj", "{872A7D72-CC72-4045-9389-A47EFD97618F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4C61D1A4-86AB-4A25-BFB8-D3BF64990C4A}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		Dockerfile = Dockerfile
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,9 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{872A7D72-CC72-4045-9389-A47EFD97618F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -30,5 +33,11 @@ Global
 		{872A7D72-CC72-4045-9389-A47EFD97618F}.Release|x64.Build.0 = Release|Any CPU
 		{872A7D72-CC72-4045-9389-A47EFD97618F}.Release|x86.ActiveCfg = Release|Any CPU
 		{872A7D72-CC72-4045-9389-A47EFD97618F}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {01E5347D-E2AB-47EF-BE1A-BBE7FFE06993}
 	EndGlobalSection
 EndGlobal
