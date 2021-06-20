@@ -20,7 +20,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       - name: Troca
-        run: sed -i 's/mylogger:v1/mylogger:10' deployment.yaml
+        run: sed -i 's/mylogger:v1/mylogger:10/' deployment.yaml
       - name: Trigger deploy
         uses: Jberlinsky/kubernetes-action@1.1.1
         env:
