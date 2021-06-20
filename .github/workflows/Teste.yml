@@ -8,7 +8,7 @@ on:
 
 jobs:
   job1:
-    name: Update deploy
+    name: Update deploya
     runs-on: ubuntu-latest 
     steps:
     - name: deploy to cluster
