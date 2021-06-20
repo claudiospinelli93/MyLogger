@@ -17,11 +17,15 @@ jobs:
         working-directory: ./
   
     steps:
-      - name: Generate build number
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+          
+      - name: Teste Package
         id: package
         uses: juliangruber/read-file-action@v1
         with:
-          path: ./deployment.yaml
+          path: ${{ github.workspace }}/deployment.yaml
           
       - name: Generate build number
         run: echo "${{ steps.package.outputs.content }}"
