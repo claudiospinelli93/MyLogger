@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Generate build number
         id: package
-        uses: juliangruber/read-file-action@v13
+        uses: juliangruber/read-file-action@v1
         with:
           path: ./deployment.yaml
           
