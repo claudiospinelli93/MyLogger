@@ -12,14 +12,14 @@ jobs:
     name: 'Container'
     runs-on: ubuntu-latest
 
-    #defaults:
-    #  run:
-    #    working-directory: ./
+    defaults:
+      run:
+        working-directory: src
   
     steps:
       - name: List files in the repository
         run: |
-          ls ${{ github.workspace }}/../
+          ls ${{ github.workspace }}
           
       - name: Teste Package
         id: package
