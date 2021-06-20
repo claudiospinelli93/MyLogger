@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: mylogger
-        image: claudiomanoel93/mylogger:v1
+        image: "Param01ImageDocker"
         ports:
         - containerPort: 80

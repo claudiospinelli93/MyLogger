@@ -29,7 +29,7 @@ jobs:
         uses: docker/build-push-action@v2.5.0
         with:
           push: true
-          tags: claudiomanoel93/mylogger:${{ steps.buildnumber.outputs.build_number }}
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/mylogger:${{ steps.buildnumber.outputs.build_number }}
 
       - uses: actions/checkout@v2
       - name: Jberlinsky AWS Credentials
@@ -40,7 +40,7 @@ jobs:
           aws-region: us-east-1
 
       - name: Change image Docker
-        run: sed -i 's/mylogger:v1/mylogger:${{ steps.buildnumber.outputs.build_number }}/' deployment.yaml
+        run: sed -i 's/Param01ImageDocker/mylogger:${{ steps.buildnumber.outputs.build_number }}/' deployment.yaml
 
       - name: Trigger deploy
         uses: Jberlinsky/kubernetes-action@1.1.1
