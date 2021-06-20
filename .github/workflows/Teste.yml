@@ -2,8 +2,8 @@ name: .NET
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  #pull_request:
+  # branches: [ main ]
 jobs:
   job1:
     name: Update deploya
@@ -38,8 +38,10 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
-      - name: Troca
-        run: sed -i 's/mylogger:v1/mylogger:10/' deployment.yaml
+
+      - name: Change image Docker
+        run: sed -i 's/mylogger:v1/mylogger:${{ steps.buildnumber.outputs.build_number }}/' deployment.yaml
+
       - name: Trigger deploy
         uses: Jberlinsky/kubernetes-action@1.1.1
         env:
