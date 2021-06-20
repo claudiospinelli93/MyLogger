@@ -11,10 +11,15 @@ jobs:
     name: Update deploy
     runs-on: ubuntu-latest 
     steps:
-      # --- #
-      - name: Build and push CONTAINER_NAME
-        uses: danielr1996/kubectl-action@1.0.0
-        with:
-          kubeconfig: ${{ secrets.KUBE_CONFIG }}
-          args: apply -f deployment.yaml
-
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-2
+    - uses: actions/checkout@master
+    - name: deploy to cluster
+      uses: steebchen/kubectl@v2.0.0
+      with: # defaults to latest kubectl binary version
+        config: ${{ secrets.KUBE_CONFIG_DATA }}
+        command: apply -f deployment.yaml
