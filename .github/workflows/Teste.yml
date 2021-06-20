@@ -11,14 +11,12 @@ jobs:
     name: Update deploya
     runs-on: ubuntu-latest 
     steps:
-      - name: Deploy new docker image
-        uses: tuongaz/kubectl-eks-action@1.0.1
+      - uses: actions/checkout@master
+      - name: deploy to cluster
+        uses: wahyd4/kubectl-helm-action@master
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: us-east-2
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
-          args: apply -f deployment.yaml
+          args: kubectl apply -f deployment.yaml
           
         
