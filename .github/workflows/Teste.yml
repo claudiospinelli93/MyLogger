@@ -70,4 +70,4 @@ jobs:
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
-          args: apply -f github-ci.yaml
+          args: apply -f ./k8s/develop/namespace-develop.yaml -f ./k8s/develop/deploy-develop.yaml -f ./k8s/develop/service-develop.yaml

@@ -10,6 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		deployment.yaml = deployment.yaml
 		Dockerfile = Dockerfile
 		github-ci.yaml = github-ci.yaml
+		k8s\develop\grafana-develop.yaml = k8s\develop\grafana-develop.yaml
 		k8s\develop\namespace-develop.yaml = k8s\develop\namespace-develop.yaml
 		k8s\develop\service-develop.yaml = k8s\develop\service-develop.yaml
 		.github\workflows\Teste.yml = .github\workflows\Teste.yml
