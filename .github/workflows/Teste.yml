@@ -44,7 +44,7 @@ jobs:
         run: sed -i 's/Param01ImageDocker/${{secrets.DOCKERHUB_USERNAME}}\/mylogger:${{ steps.buildnumber.outputs.build_number }}/' ./k8s/develop/deployment-develop.yaml
 
       - name: Trigger deploy
-        uses: Jberlinsky/kubernetes-action@1.1.1
+        uses: Jberlinsky/kubernetes-action@master
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
